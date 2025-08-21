@@ -31,7 +31,7 @@ Incluye backend en **Node.js + TypeScript** y base de datos en **PostgreSQL con 
 ### 1. Levantar la base de datos con Docker
 Ir a la carpeta `databases/` y ejecutar:
 
-```bash
+```
 cd databases
 docker compose up -d
 ```
