@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS chikung_app;
+USE chikung_app;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) UNIQUE NOT NULL,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS exercises (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  description TEXT NOT NULL,
+  steps TEXT,
+  order_index INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS practices (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  exercise_id INT,
+  practice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  duration_minutes INT,
+  note TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (exercise_id) REFERENCES exercises(id)
+);

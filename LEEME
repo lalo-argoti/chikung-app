@@ -1,0 +1,114 @@
+# 🌱 Chikung App
+
+Aplicación prototipo para gestionar rutinas de chikung / medicina tradicional china.  
+Incluye backend en **Node.js + TypeScript** y base de datos en **PostgreSQL con Docker**.
+
+---
+
+## 📂 Estructura del proyecto
+
+.
+├── backend
+│ ├── package.json
+│ ├── tsconfig.json
+│ └── src
+│ └── app.ts
+├── databases
+│ ├── docker-compose.yml
+│ └── scripts
+│ └── init.sql
+└── be.sh
+
+yaml
+Copiar
+Editar
+
+---
+
+## ⚙️ Requisitos previos
+
+- [Node.js](https://nodejs.org/) v18 o superior  
+- [Docker](https://www.docker.com/) y [Docker Compose](https://docs.docker.com/compose/)  
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)  
+
+---
+
+## 🚀 Cómo correr el proyecto
+
+### 1. Levantar la base de datos con Docker
+Ir a la carpeta `databases/` y ejecutar:
+
+```bash
+cd databases
+docker compose up -d
+Esto creará un contenedor chikung_db con Postgres corriendo en localhost:5432.
+El script scripts/init.sql se ejecutará automáticamente la primera vez para inicializar la DB.
+
+2. Instalar dependencias del backend
+Desde la raíz del proyecto:
+
+bash
+Copiar
+Editar
+cd backend
+npm install
+3. Compilar TypeScript
+bash
+Copiar
+Editar
+npm run build
+Esto generará la carpeta dist/ con los archivos de JS compilados.
+
+4. Ejecutar en desarrollo
+Para correr con hot-reload (si usas ts-node-dev o nodemon):
+
+bash
+Copiar
+Editar
+npm run dev
+5. Ejecutar en producción
+Primero compila, luego corre:
+
+bash
+Copiar
+Editar
+npm run build
+npm start
+📜 Scripts útiles
+En be.sh hay comandos resumidos:
+
+bash
+Copiar
+Editar
+# Levantar DB y backend en dev
+./be.sh dev
+
+# Compilar y correr en producción
+./be.sh prod
+📡 Endpoints iniciales
+GET / → Hello World (probar que el backend funciona)
+
+Futuro: GET /routines, POST /session, etc.
+
+🗄️ Conexión a la DB
+Valores por defecto:
+
+Usuario: chikung
+
+Contraseña: chikung123
+
+DB: chikungdb
+
+Host: localhost
+
+Puerto: 5432
+
+Puedes cambiar estos valores en databases/docker-compose.yml.
+
+🧩 Próximos pasos
+Definir entidades (users, routines, sessions) en init.sql
+
+Crear rutas REST en src/app.ts
+
+Añadir autenticación simple
+
