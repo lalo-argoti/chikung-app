@@ -42,13 +42,13 @@ El script scripts/init.sql se ejecutará automáticamente la primera vez para in
 2. Instalar dependencias del backend
 Desde la raíz del proyecto:
 
-```bash
+```
 cd backend
 npm install
 ```
 
 3. Compilar TypeScript
-```bash
+```
 npm run build
 ```
 
@@ -57,10 +57,11 @@ Esto generará la carpeta dist/ con los archivos de JS compilados.
 4. Ejecutar en desarrollo
 Para correr con hot-reload (si usas ts-node-dev o nodemon):
 
-```bash
-npm run dev
-5. Ejecutar en producción
 ```
+npm run dev
+```
+
+5. Ejecutar en producción
 Primero compila, luego corre:
 
 ```bash
@@ -71,9 +72,7 @@ npm start
 📜 Scripts útiles
 En be.sh hay comandos resumidos:
 
-bash
-Copiar
-Editar
+```
 # Levantar DB y backend en dev
 ./be.sh dev
 
@@ -81,6 +80,7 @@ Editar
 ./be.sh prod
 📡 Endpoints iniciales
 GET / → Hello World (probar que el backend funciona)
+```
 
 Futuro: GET /routines, POST /session, etc.
 
