@@ -16,10 +16,6 @@ Incluye backend en **Node.js + TypeScript** y base de datos en **PostgreSQL con 
 │ └── scripts
 │ └── init.sql
 └── be.sh
-
-yaml
-Copiar
-Editar
 ```
 
 ## ⚙️ Requisitos previos
@@ -38,39 +34,40 @@ Ir a la carpeta `databases/` y ejecutar:
 ```bash
 cd databases
 docker compose up -d
+```
+
 Esto creará un contenedor chikung_db con Postgres corriendo en localhost:5432.
 El script scripts/init.sql se ejecutará automáticamente la primera vez para inicializar la DB.
 
 2. Instalar dependencias del backend
 Desde la raíz del proyecto:
 
-bash
-Copiar
-Editar
+```bash
 cd backend
 npm install
+```
+
 3. Compilar TypeScript
-bash
-Copiar
-Editar
+```bash
 npm run build
+```
+
 Esto generará la carpeta dist/ con los archivos de JS compilados.
 
 4. Ejecutar en desarrollo
 Para correr con hot-reload (si usas ts-node-dev o nodemon):
 
-bash
-Copiar
-Editar
+```bash
 npm run dev
 5. Ejecutar en producción
+```
 Primero compila, luego corre:
 
-bash
-Copiar
-Editar
+```bash
 npm run build
 npm start
+```
+
 📜 Scripts útiles
 En be.sh hay comandos resumidos:
 
